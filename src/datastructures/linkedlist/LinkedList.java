@@ -61,20 +61,39 @@ public class LinkedList {
 
     public void append(int value) {
         Node newNode = new Node(value);
-        if (length == 0) {
+        if(length == 0) {
             head = newNode;
-            tail = newNode;
         } else {
             tail.next = newNode;
+        }
+        tail = newNode;
+        length++;
+    }
+
+    public void prepend(int value){
+        Node newNode = new Node(value);
+        if (length==0){
+            head = newNode;
             tail = newNode;
+        }
+        else{
+            newNode.next = head;
+            head = newNode;
         }
         length++;
     }
-    public Node removeLast(){
-        if (length==0) return null;
+//    public void removeFirst(){
+//        if (length==0) return;
+//        Node nodeRemove = head;
+//        head = nodeRemove.next;
+//        nodeRemove = null;
+//        length--;
+//    }
+    public void removeLast(){
+        if (length==0) return;
         Node temp = head;
         Node pre= temp;
-
+        //moves the head from one node to the next and sets the  till it gets to th
         while (temp.next!=null){
             pre = temp;
             temp = temp.next;
@@ -88,6 +107,5 @@ public class LinkedList {
             tail = null;
         }
 
-        return temp;
     }
 }
