@@ -5,7 +5,8 @@ public class Main {
         LinkedList myLinkedList = new LinkedList(1);
         myLinkedList.append(2);
         myLinkedList.prepend(3);
-        //myLinkedList.removeLast();
+        //myLinkedList.removeFirst();
+
 
         myLinkedList.getHead();
         myLinkedList.getTail();
@@ -13,5 +14,7 @@ public class Main {
 
         System.out.println("\nLinked List:");
         myLinkedList.printList();
+
+        System.out.printf("Element at specified index is: " + myLinkedList.get(0));
     }
 }

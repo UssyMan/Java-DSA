@@ -82,13 +82,16 @@ public class LinkedList {
         }
         length++;
     }
-//    public void removeFirst(){
-//        if (length==0) return;
-//        Node nodeRemove = head;
-//        head = nodeRemove.next;
-//        nodeRemove = null;
-//        length--;
-//    }
+    public void removeFirst(){
+        if (length==0) return;
+        Node nodeRemove = head;
+        head = nodeRemove.next;
+        nodeRemove = null;
+        length--;
+        if (length==0){
+            tail = null;
+        }
+    }
     public void removeLast(){
         if (length==0) return;
         Node temp = head;
@@ -107,5 +110,19 @@ public class LinkedList {
             tail = null;
         }
 
+    }
+    public int get(int index){
+        if (index<0 ||index>=length){
+            System.out.println("Index out of Bound");
+            return -1;
+        }
+
+        int indexCounter = 0;
+        Node preHead = head;
+        while(indexCounter<index){
+            head = head.next;
+            indexCounter++;
+        }
+        return head.value;
     }
 }
